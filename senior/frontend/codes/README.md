@@ -34,3 +34,25 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+# Frontend - Murabei FullStack Test
+
+Este frontend foi construído com **Next.js 14** + **TypeScript**, seguindo as exigências do teste técnico para Desenvolvedor FullStack da Murabei.
+
+## Funcionalidades
+- Filtros acumulativos por Autor, Título e Biografia
+- Componente de filtro separado (`FilterBar.tsx`)
+- Debounce aplicado para evitar chamadas excessivas
+- Interface responsiva com shadcn/ui e Tailwind CSS
+- Feedback visual para carregamento, erro e resultado vazio
+- Testes automatizados com Cypress
+
+## Como rodar localmente
+
+### 1. Rodar o backend
+Veja o README da raiz para rodar o backend via Docker.
+
+### 2. Rodar o frontend com Docker
+```bash
+cd frontend
+bash build.sh

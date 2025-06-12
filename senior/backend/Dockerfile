@@ -1,26 +1,20 @@
-# Use an official Python runtime as the base image
-FROM python:3.9-slim
+# Etapa 1 - Imagem base leve do Python
+FROM python:3.9-slim AS builder
 
-# Set environment variables
-ENV PYTHONUNBUFFERED 1
-ENV PYTHONDONTWRITEBYTECODE 1
-
-# Set the working directory in the container
+# Define o diretório de trabalho
 WORKDIR /app
 
-# Copy the requirements file to the working directory
-COPY requirements.txt requirements.txt
+# Copia apenas o arquivo de dependências
+COPY requirements.txt .
 
-# Install the dependencies
-RUN pip3 install --no-cache-dir -r requirements.txt
+# Instala as dependências (evita cache do pip)
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the application code to the working directory
+# Copia os arquivos da aplicação
 COPY . .
 
-# Expose the port on which the Flask app will run (adjust if necessary)
+# Expõe a porta da API Flask
 EXPOSE 5000
 
-# ...
-
-# Run the Flask development server
-CMD ["flask", "--app", "app", "run", "--host=0.0.0.0"]
+# Comando padrão para rodar a API
+CMD ["python", "app.py"]
